@@ -17,7 +17,7 @@ app.use('/api/elections', require('./routes/elections'));
 app.use('/api/votes', require('./routes/votes'));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://divakar:divakar@cluster0.qyq6b8r.mongodb.net/voting-system?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect(process.env.MONGODB_URI);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
