@@ -18,7 +18,7 @@ const Results = () => {
 
   const fetchElectionResults = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/elections/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/elections/${id}`);
       setElection(response.data);
     } catch (err) {
       setError('Failed to fetch election results');

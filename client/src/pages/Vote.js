@@ -21,7 +21,7 @@ const Vote = () => {
 
   const fetchElection = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/elections/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/elections/${id}`);
       setElection(response.data);
       
       // Check if election is active
@@ -51,7 +51,7 @@ const Vote = () => {
     setError('');
 
     try {
-      await axios.post('http://localhost:5000/api/votes', {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/votes`, {
         electionId: id,
         candidateId: selectedCandidate
       });

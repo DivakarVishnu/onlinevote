@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
   const fetchElections = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/elections');
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}`);
       setElections(response.data);
     } catch (err) {
       setError('Failed to fetch elections');
@@ -37,9 +37,9 @@ const AdminDashboard = () => {
     
     try {
       if (editingElection) {
-        await axios.put(`http://localhost:5000/api/elections/${editingElection._id}`, formData);
+        await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/elections/${editingElection._id}`, formData);
       } else {
-        await axios.post('http://localhost:5000/api/elections', formData);
+        await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/elections`, formData);
       }
       
       fetchElections();
